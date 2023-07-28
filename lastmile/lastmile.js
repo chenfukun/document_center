@@ -96,7 +96,7 @@ response = {
 }
 
 
-//post wms-app/lso/qc-scan-data/add
+//post wms-app/lso/qc-scan-package/add
 request = {
     qcId: "165456789915",
     scannedTrackingNo: "78964123"
@@ -109,7 +109,7 @@ response = {
     result: [{_id: "123465498798", route: 'a', routeId: "xxxxx", sequence: '1', trackingNO: '78974613', driver: 'Mr.A', driverId: "xxxxx", status: "Overage, Short"}] // trackingNo 是一定会有的， 它来源于两部分， driver_assignee & qc_scan,   overage 只存在qc_scan 有， 但是driver_assignee没有, short=> qc_scan没有 或者 driver_scan 没有
 }
 
-//delete /lso/qc-scan-data/:qcId/trackingNo/:trackingNo
+//delete /lso/qc-scan-package/:qcId/trackingNo/:trackingNo
 
 3
 //put wms-app/lso/qc-scan-result/:qcId/submit (此时去填充lso_driver_scan_package，lso_drive_assignee_package)
