@@ -40,7 +40,7 @@ response = {
             status: "checked, uncheck",
             routes: [{
                 route: "190",
-                rouuteId: "7bc71186-9d6f-4541-a1b3-ffcfe0b6234f",
+                routeId: "7bc71186-9d6f-4541-a1b3-ffcfe0b6234f",
                 bScanedQty: 10,
                 excep: {
                     overage: 1,
