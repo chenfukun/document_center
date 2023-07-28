@@ -1,4 +1,4 @@
-//1 get /lso/route/overview
+//1 get bam/lso/route/overview
 response = {
     TotalPakgs: 7000,
     datas:[
@@ -29,7 +29,7 @@ response = {
     ]
 }
 
-//2 get /lso/driver/overview
+//2 get bam/lso/driver/overview
 
 response = {
     TotalPakgs: 7000,
@@ -60,21 +60,21 @@ response = {
 }
 
 
-//post /lso/qc_scan_result/latest-get
+//post wms-app/lso/qc_scan_result/latest-get
 request = {
     assigneeDriverId: '9d0b5ee9-fa02-4d6e-8633-f7980b225ae1',
     assigneeRouteIds: ["7bc71186-9d6f-4541-a1b3-ffcfe0b6234f"],
 }
 response = {qcId: '131654411'}
 
-//post /lso/qc-scan-result/generate  (生成一个qc记录， 手机端取qcId 用于绑定qc 扫描上来的包裹)
+//post wms-app/lso/qc-scan-result/generate  (生成一个qc记录， 手机端取qcId 用于绑定qc 扫描上来的包裹)
 request = {
     assigneeDriverId: '9d0b5ee9-fa02-4d6e-8633-f7980b225ae1',
     assigneeRouteIds: ["7bc71186-9d6f-4541-a1b3-ffcfe0b6234f"],
 }
 response = {qcId: '131654411'}
 
-//get  /lso/qc-scan-result/:qcId
+//get  bam/lso/qc-scan-result/:qcId
 response =  {
     _id: "qcId",
     driver: 'MR.A',
@@ -89,21 +89,21 @@ response =  {
 }
 
 
-//get /lso/qc-scan-result/:qcId/in-progress
+//get bam/lso/qc-scan-result/:qcId/in-progress
 response = {
     driverAssigneePkgs: [{sequence: 1,driver: 'Mr.A', driverId: "xxxxx", trackingNo: '1234567',route: '190', routeId: "xxxx"}],
     qcScanPkgs:[{qcId: '165456789915', trackingNo: '1234567', status: 'scanned'}]
 }
 
 
-//post /lso/qc-scan-data/add
+//post wms-app/lso/qc-scan-data/add
 request = {
     qcId: "165456789915",
     scannedTrackingNo: "78964123"
 }
 
 3
-//post /lso/qc-scan/:qcId/analysis
+//post bam/lso/qc-scan/:qcId/analysis
 response = {
     excepPkgs: [{_id: "123465498798", route: 'a', routeId: "xxxxx", sequence: '1', trackingNO: '78974613', driver: 'Mr.A', driverId: "xxxxx"}],
     result: [{_id: "123465498798", route: 'a', routeId: "xxxxx", sequence: '1', trackingNO: '78974613', driver: 'Mr.A', driverId: "xxxxx", status: "Overage, Short"}] // trackingNo 是一定会有的， 它来源于两部分， driver_assignee & qc_scan,   overage 只存在qc_scan 有， 但是driver_assignee没有, short=> qc_scan没有 或者 driver_scan 没有
@@ -112,7 +112,7 @@ response = {
 //delete /lso/qc-scan-data/:qcId/trackingNo/:trackingNo
 
 3
-//put /lso/qc-scan-result/:qcId/submit (此时去填充lso_driver_scan_package，lso_drive_assignee_package)
+//put wms-app/lso/qc-scan-result/:qcId/submit (此时去填充lso_driver_scan_package，lso_drive_assignee_package)
 request = {
     status: "Close",
     driverAssigneeQty: 100,
